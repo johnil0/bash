@@ -18,7 +18,7 @@ NC='\033[0m'
 var101=0
 while :;
 do
-    printf "\n${LP}MODE:[z/x]${NC}"
+    printf "\n${LP}MODEl:[z/x]${NC}"
     read -n1 -r opt1
 while :;
 do
