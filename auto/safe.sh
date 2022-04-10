@@ -34,7 +34,7 @@ do
     case $opt in
 
         q | Q)
-            $(git commit -m "'${mes[@]}'")
+            git commit -m "."
         ;;
 
         c | C)
