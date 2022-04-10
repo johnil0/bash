@@ -13,7 +13,7 @@ do
 
     if [[ ${#opt[@]} -gt 1 ]] #aray check
     then
-    mes=("")
+        mes=()
         if [[ ${opt[1]} != "." ]]
         then
             opt=${opt[0]}
@@ -27,12 +27,12 @@ do
 
                 optar+=($value)
             else
-            echo ">> $value"
-            mes+=($value)
+                echo ">> $value"
+                mes+=($value)
             fi
         done
     fi
-echo "-- $mes"
+    echo "-- $mes"
     case $opt in
 
         q | Q)
