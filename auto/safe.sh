@@ -13,6 +13,7 @@ do
 
     if [[ ${#opt[@]} -gt 1 ]] #aray check
     then
+    mes=("")
         if [[ ${opt[1]} != "." ]]
         then
             opt=${opt[0]}
