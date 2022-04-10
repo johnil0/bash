@@ -26,11 +26,12 @@ do
 
                 optar+=($value)
             else
+            echo $value
             mes+=($value)
             fi
         done
     fi
-
+echo $mes
     case $opt in
 
         q | Q)
