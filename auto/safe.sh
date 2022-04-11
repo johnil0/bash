@@ -32,7 +32,7 @@ do
             fi
         done
     fi
-    echo "-- $mes"
+    echo "-- ${mes[@]}"
     case $opt in
 
         q | Q)
