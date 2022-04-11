@@ -18,3 +18,4 @@ do
 done
 
 git commit -m "${mes[@]}"
+git push origin john-dev
