@@ -27,16 +27,25 @@ do
 
                 optar+=($value)
             else
-                echo ">> $value"
+
                 mes+=($value)
             fi
         done
     fi
-    echo "-- ${mes[@]}"
+
     case $opt in
 
         q | Q)
-            git commit -m "."
+
+            namear=${mes[@]}
+            export namear #array of to be added
+            sh ./auto/gitcommit.sh
+        ;;
+
+       "q ." | "Q .")
+
+            git add .
+            git commit -m "$USERNAME"
         ;;
 
         c | C)
