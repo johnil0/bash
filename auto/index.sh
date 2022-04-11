@@ -20,6 +20,7 @@ to=0
 # 2>&1 >/dev/null &> /dev/null
 printf "Pulling. . ."
 pull=$(git pull origin main)
+git pull origin john-dev
 pullret=($pull)
 
 
@@ -40,7 +41,7 @@ done
     if [[ $al -gt 0 && $to -gt 0 ]]
     then
     printf "\033[1;32m UP TO DATE! ${NC}"
-    sleep 1
+    sleep 2
     clear
     else
     printf "\033[1;31m Something went wrong! ${NC}"
