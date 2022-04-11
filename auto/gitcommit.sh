@@ -16,6 +16,6 @@ do
         mes+=($value)
     fi
 done
-
+git pull origin john-dev
 git commit -m "${mes[@]}"
 git push origin john-dev
