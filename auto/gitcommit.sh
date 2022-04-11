@@ -5,10 +5,9 @@ LR='\033[3;31m'
 NC='\033[0m'
 
 mes=()
-ha=(${namear[@]})
-arr=(${ha[@]})
-echo ">>  ${arr[@]}"
-#....
+arr=(${namear[@]})
+
+
 for value in "${arr[@]}"
 do
 
@@ -17,19 +16,5 @@ do
         mes+=($value)
     fi
 done
-echo ">>> ${mes[@]}"
+
 git commit -m "${mes[@]}"
-# for value in "${namearray[@]}"
-# do
-
-#     if [[ $value -le ${#tbadded[@]} ]]
-#     then
-
-#         printf "\033[3;37m ${tbadded[$value]} ${NC} ${LG} was staged ${NC}\n"
-#         addd=$(git add ${tbadded[$value]} &> /dev/null)
-#     else
-#         printf "$value ${LR}not found${NC}\n"
-#     fi
-
-
-# done
