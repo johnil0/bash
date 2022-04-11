@@ -4,22 +4,21 @@ LGY='\033[1;33m'
 LR='\033[3;31m'
 NC='\033[0m'
 
-
+mes=()
 ha=(${namear[@]})
 arr=(${ha[@]})
 echo ">>  ${arr[@]}"
+#....
+for value in "${arr[@]}"
+do
 
-# for value in "${arr[@]}"
-# do
-
-#     if [[ $value != "xxx" ]]
-#     then
-#         tbadded+=($value)
-#     else
-#     break
-#     fi
-# done
-
+    if [[ $value != "q" ]]
+    then
+        mes+=($value)
+    fi
+done
+echo ">>> ${mes[@]}"
+git commit -m "${mes[@]}"
 # for value in "${namearray[@]}"
 # do
 
