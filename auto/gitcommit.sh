@@ -16,6 +16,8 @@ do
         mes+=($value)
     fi
 done
+mes1=${mes[*]}
+echo $mes1
 git pull origin john-dev &> /dev/null
-echo $(git commit -m \"${mes[*]}\")
+git commit -m "$mes1"
 git push origin john-dev &> /dev/null
