@@ -43,9 +43,10 @@ do
         ;;
 
        "q ." | "Q .")
-
+            git pull origin john-dev &> /dev/null
             git add .
             git commit -m "$USERNAME"
+            git push origin john-dev &> /dev/null
         ;;
 
         c | C)
