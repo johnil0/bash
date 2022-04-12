@@ -19,7 +19,7 @@ done
 mes1=${mes[*]}
 git pull origin john-dev &> /dev/null
 git add . &> /dev/null
-printf "\033[1;32m"
+printf "\033[0;32m"
 git commit -m "${mes[*]}"
 printf "\033[0m"
 git push origin john-dev &> /dev/null
