@@ -17,7 +17,6 @@ do
     fi
 done
 mes1=${mes[*]}
-echo $mes1
 git pull origin john-dev &> /dev/null
 git commit -m "$mes1"
 git push origin john-dev &> /dev/null
