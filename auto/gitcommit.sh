@@ -18,5 +18,6 @@ do
 done
 mes1=${mes[*]}
 git pull origin john-dev &> /dev/null
+git add .
 git commit -m "${mes[*]}"
 git push origin john-dev &> /dev/null
