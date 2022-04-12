@@ -27,7 +27,7 @@ done
 for value in "${namearray[@]}"
 do
 
-    if [[ $value -le ${#tbadded[@]} ]]
+    if [[ $value -lt ${#tbadded[@]} ]]
     then
 
         printf "\033[3;37m ${tbadded[$value]} ${NC} ${LG} was staged ${NC}\n"
