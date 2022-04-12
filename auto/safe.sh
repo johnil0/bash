@@ -42,9 +42,14 @@ do
             sh ./auto/gitcommit.sh
         ;;
 
-       "q ." | "Q .")
-            git pull origin john-dev &> /dev/null
-            git add .
+        p | P)
+
+            git pull origin main
+        ;;
+
+        "q ." | "Q .")
+            git pull origin main &> /dev/null
+            git add . &> /dev/null
             git commit -m "$USERNAME"
             git push origin john-dev &> /dev/null
         ;;

@@ -17,7 +17,7 @@ do
     fi
 done
 mes1=${mes[*]}
-git pull origin john-dev &> /dev/null
+git pull origin main &> /dev/null
 git add . &> /dev/null
 printf "\033[0;32m"
 git commit -m "${mes[*]}"
