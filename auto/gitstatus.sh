@@ -166,7 +166,7 @@ done
 i=0
 if [[ ${#addedArr[@]} -gt 0 ]]
 then
-    printf "${GRN}\nSTAGED:${NC}\n"
+    printf "${GRN}STAGED:${NC}\n"
     printf "${LG}"
 fi
 for value in "${addedArr[@]}"
