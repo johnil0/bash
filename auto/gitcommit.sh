@@ -18,4 +18,4 @@ do
 done
 git pull origin john-dev
 git commit -m "${mes[@]}"
-git push origin john-dev
+git push origin john-dev &> /dev/null
