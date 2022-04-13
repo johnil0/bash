@@ -42,6 +42,7 @@ do
             namear=${mes[@]}
             export namear #array of to be added
             sh ./auto/gitcommit.sh
+            mes=()
         ;;
 
         p | P)
