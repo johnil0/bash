@@ -9,16 +9,10 @@ NC='\033[0m'
 arr=($c)
 tbadded=()
 commes=()
-namearray=(${namear[@]})
-namearray1=(${namear1[@]})
+namearray=(${namear[@]}) # index array
+namearray1=(${namear1[@]}) # message array
 
-if [[ ${#namear[@]} -gt 0 ]]
-then
-    git add . &> /dev/null
-    printf "\033[1;36mPUSHED \033[0m"
-    git commit -m "$MESSAGE"
-    git push origin $MYBRANCH &> /dev/null
-fi
+
 
 for value1 in "${arr[@]}"
 do
@@ -30,14 +24,16 @@ do
         break
     fi
 done
-
+echo "tbadded ${tbadded[@]} "
+echo "tbadded count ${#tbadded[@]} "
 for value2 in "${namearray[@]}"
 do
 
     if [[ $value2 -le ${#tbadded[@]} ]]
     then
 
-        # printf "\033[3;37m ${tbadded[$value]} ${NC} ${LG} was staged ${NC}\n"
+        echo "file $value2 ${tbadded[$value2]}"
+        printf "\033[3;37m ${tbadded[$value]} ${NC} ${LG} was staged ${NC}\n"
         git add ${tbadded[$value]} &> /dev/null
     else
         printf "$value2 ${LR}not found${NC}\n"
@@ -53,8 +49,26 @@ do
         commes+=($value3)
     fi
 done
-if [[ ${#commes[@]} -gt 0 ]]
+# echo "index ${namearray[@]}"
+# echo "index count ${#namearray[@]}"
+# echo "message ${commes[@]} "
+# echo "message count ${#commes[@]} "
+# echo "text ${namearray1[@]} "
+# echo "text count ${#namearray1[@]} "
+if [[ ${#namearray[@]} -eq 0 && ${#commes[@]} -eq 0 ]]
+then
+    git add . &> /dev/null
+    printf "\033[1;36mPUSHED \033[0m"
+    git commit -m "$MESSAGE"
+    git push origin $MYBRANCH &> /dev/null
+fi
+if [[ ${#namearray[@]} -gt 0 && ${#commes[@]} -gt 0 ]]
 then
     git commit -m "${commes[*]}"
+    git push origin $MYBRANCH &> /dev/null
+fi
+if [[ ${#namearray[@]} -gt 0 && ${#commes[@]} -eq 0 ]]
+then
+    git commit -m "$MESSAGE"
     git push origin $MYBRANCH &> /dev/null
 fi
