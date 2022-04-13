@@ -57,6 +57,7 @@ done
 if [[ ${#namearray[@]} -eq 0 && ${#commes[@]} -eq 0 ]]
 then
     git add . &> /dev/null
+    printf "\033[1;32m Everything was STAGED. \033[0m \n"
     printf "\033[1;36mPUSHED \033[0m"
     git commit -m "$MESSAGE"
     git push origin $MYBRANCH &> /dev/null
