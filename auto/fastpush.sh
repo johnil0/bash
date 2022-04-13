@@ -29,7 +29,7 @@ for value2 in "${namearray[@]}"
 do
     echo ">> $value2"
     echo ">>.. ${#tbadded[@]}"
-    if [[ $value2 -lt ${#tbadded[@]} ]]
+    if [[ $value2 -le ${#tbadded[@]} ]]
     then
 
         # printf "\033[3;37m ${tbadded[$value]} ${NC} ${LG} was staged ${NC}\n"
