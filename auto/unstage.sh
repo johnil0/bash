@@ -7,7 +7,7 @@ arr=($c)
 added=()
 cnt=()
 namearray=(${namear[@]})
-printf "${LGY}Unstage: "
+printf "${LGY}Unstage:\n"
 # read -r opt
 printf "${NC}"
 # optarr=($opt)
