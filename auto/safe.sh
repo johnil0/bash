@@ -52,7 +52,7 @@ do
         "push" | "PUSH" | "Push")
             git pull origin $BRANCH &> /dev/null
             git add . &> /dev/null
-            printf "\033[1;36mPUSHED\033[0m"
+            printf "\033[1;36mPUSHED \033[0m"
             git commit -m "$MESSAGE"
             git push origin $MYBRANCH &> /dev/null
         ;;
