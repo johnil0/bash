@@ -1,4 +1,6 @@
 #!/bin/sh
+source ./auto/srcvar.sh
+
 LG='\033[3;32m'
 LGY='\033[1;33m'
 LR='\033[3;31m'
@@ -9,9 +11,12 @@ tbadded=()
 commes=()
 namearray=(${namear[@]})
 namearray1=(${namear1[@]})
+
 if [[ ${#namear[@]} -gt 0 ]]
 then
-    echo "haha"
+    git add .
+    git commit -m "$MESSAGE"
+    git push origin $MYBRANCH &> /dev/null
 fi
 
 for value1 in "${arr[@]}"
@@ -50,7 +55,6 @@ do
 done
 if [[ ${#commes[@]} -gt 0 ]]
 then
-    echo "hahahha"
+    git commit -m "${commes[*]}"
+    git push origin $MYBRANCH &> /dev/null
 fi
-git commit -m "${commes[*]}"
-git push origin $MYBRANCH &> /dev/null
