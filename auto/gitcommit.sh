@@ -1,4 +1,5 @@
 #!/bin/sh
+source ./auto/srcvar.sh
 LG='\033[3;32m'
 LGY='\033[1;33m'
 LR='\033[3;31m'
@@ -17,9 +18,9 @@ do
     fi
 done
 mes1=${mes[*]}
-git pull origin main &> /dev/null
-git add . &> /dev/null
+git pull origin $BRANCH &> /dev/null
+# git add . &> /dev/null
 printf "\033[0;32m"
 git commit -m "${mes[*]}"
 printf "\033[0m"
-git push origin john-dev &> /dev/null
+git push origin $MYBRANCH &> /dev/null

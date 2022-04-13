@@ -178,6 +178,11 @@ done
 i=0
 printf "${NC}"
 
+if [[ ${#toBeAddedArr[@]} -eq 0 && ${#addedArr[@]} -eq 0 ]]
+then
+printf "${GRN}No changes${NC}"
+fi
+
 a=("${toBeAddedArr[@]}" "xxx" "${addedArr[@]}")
 x=${a[@]}
 export x
