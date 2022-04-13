@@ -3,10 +3,11 @@ LG='\033[3;32m'
 LGY='\033[1;33m'
 LR='\033[3;31m'
 NC='\033[0m'
+
 arr=($c)
 tbadded=()
-
 namearray=(${namear[@]})
+
 printf "${LGY}Add: "
 # read -r opt
 printf "${NC}"

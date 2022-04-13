@@ -50,11 +50,15 @@ do
         ;;
 
         "push" | "PUSH" | "Push")
-            git pull origin $BRANCH &> /dev/null
-            git add . &> /dev/null
-            printf "\033[1;36mPUSHED \033[0m"
-            git commit -m "$MESSAGE"
-            git push origin $MYBRANCH &> /dev/null
+            # git pull origin $BRANCH &> /dev/null
+            # git add . &> /dev/null
+            # printf "\033[1;36mPUSHED \033[0m"
+            # git commit -m "$MESSAGE"
+            # git push origin $MYBRANCH &> /dev/null
+            namear=${optar[@]}
+            namear1=${mes[@]}
+            export c namear namear1 #array of to be added
+            sh ./auto/fastpush.sh
         ;;
 
         c | C)
