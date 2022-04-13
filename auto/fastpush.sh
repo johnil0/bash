@@ -14,14 +14,15 @@ namearray1=(${namear1[@]})
 
 if [[ ${#namear[@]} -gt 0 ]]
 then
-    git add .
+    git add . &> /dev/null
+    printf "\033[1;36mPUSHED \033[0m"
     git commit -m "$MESSAGE"
     git push origin $MYBRANCH &> /dev/null
 fi
 
 for value1 in "${arr[@]}"
 do
-    echo "> $value1"
+
     if [[ $value1 != "xxx" ]]
     then
         tbadded+=($value1)
@@ -32,8 +33,7 @@ done
 
 for value2 in "${namearray[@]}"
 do
-    echo ">> $value2"
-    echo ">>.. ${#tbadded[@]}"
+
     if [[ $value2 -le ${#tbadded[@]} ]]
     then
 
