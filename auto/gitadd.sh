@@ -8,7 +8,7 @@ arr=($c)
 tbadded=()
 namearray=(${namear[@]})
 
-printf "${LGY}Add: "
+printf "${LGY}Add:\n"
 # read -r opt
 printf "${NC}"
 # optarr=($opt)
