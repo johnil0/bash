@@ -42,6 +42,7 @@ do
             namear=${mes[@]}
             export namear #array of to be added
             sh ./auto/gitcommit.sh
+            mes=()
         ;;
 
         p | P)
@@ -60,6 +61,7 @@ do
             export c namear namear1 #array of to be added
             sh ./auto/fastpush.sh
             optar=()
+            mes=()
         ;;
 
         c | C)
@@ -81,6 +83,7 @@ do
             namear=${optar[@]}
             export c namear #array of to be added
             sh ./auto/gitadd.sh
+            optar=()
         ;;
 
         "a ." | "A .")
@@ -93,16 +96,18 @@ do
             namear=${optar[@]}
             export c namear #array of to be added
             sh ./auto/unstage.sh
+            optar=()
         ;;
 
         r | R)
             namear=${optar[@]}
             export c namear #array of to be added
             sh ./auto/restore.sh
+            optar=()
         ;;
 
         "r ." | "R .")
-          git restore . &> /dev/null
+            git restore . &> /dev/null
             printf "\033[1;32m Everything was RESTORED. \033[0m"
         ;;
 
