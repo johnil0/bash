@@ -1,17 +1,19 @@
 #!/bin/bash
+source ./auto/srcvar.sh
 c=$x
 optar=()
 opt=()
 mes=()
 num='^[0-9]+$'
+
 while :
 do
 
-    printf "\n@utoGsafe \n-->"
+    printf "\n@utoG \n-->"
     read opt1
-    opt=(${opt1[@]}) # make the inputed an array
+    opt=(${opt1[@]})
 
-    if [[ ${#opt[@]} -gt 1 ]] #aray check
+    if [[ ${#opt[@]} -gt 1 ]]
     then
         mes=()
         if [[ ${opt[1]} != "." ]]
@@ -42,10 +44,17 @@ do
             sh ./auto/gitcommit.sh
         ;;
 
-       "q ." | "Q .")
+        p | P)
 
-            git add .
-            git commit -m "$USERNAME"
+            git pull origin $BRANCH
+        ;;
+
+        "push" | "PUSH" | "Push")
+            git pull origin $BRANCH &> /dev/null
+            git add . &> /dev/null
+            printf "\033[1;36mPUSHED\033[0m"
+            git commit -m "$MESSAGE"
+            git push origin $MYBRANCH &> /dev/null
         ;;
 
         c | C)
@@ -78,16 +87,22 @@ do
         u | U)
             namear=${optar[@]}
             export c namear #array of to be added
-            sh ./auto/gitrestore.sh
+            sh ./auto/unstage.sh
         ;;
 
-
-        "qwe")
-            git status
+        r | R)
+            namear=${optar[@]}
+            export c namear #array of to be added
+            sh ./auto/restore.sh
         ;;
+
 
         "run")
-            npm run dev
+            $RUN
+        ;;
+
+        d | D)
+            sh ./auto/deploy.sh
         ;;
 
         *)

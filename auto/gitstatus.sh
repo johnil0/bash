@@ -166,7 +166,7 @@ done
 i=0
 if [[ ${#addedArr[@]} -gt 0 ]]
 then
-    printf "${GRN}\nSTAGED:${NC}\n"
+    printf "${GRN}STAGED:${NC}\n"
     printf "${LG}"
 fi
 for value in "${addedArr[@]}"
@@ -177,6 +177,11 @@ do
 done
 i=0
 printf "${NC}"
+
+if [[ ${#toBeAddedArr[@]} -eq 0 && ${#addedArr[@]} -eq 0 ]]
+then
+printf "${GRN}No changes${NC}"
+fi
 
 a=("${toBeAddedArr[@]}" "xxx" "${addedArr[@]}")
 x=${a[@]}

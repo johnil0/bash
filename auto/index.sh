@@ -7,7 +7,7 @@
 #Purple       0;35     Light Purple  1;35
 #Cyan         0;36     Light Cyan    1;36
 #Light Gray   0;37     White         1;37
-
+source ./auto/srcvar.sh
 GRN='\033[1;32m'
 BRK='\033[1;30m'
 LP='\033[1;31m'
@@ -18,33 +18,16 @@ al=0
 to=0
 
 # 2>&1 >/dev/null &> /dev/null
-printf "Pulling. . ."
-pull=$(git pull origin main)
-pullret=($pull)
+printf "\033[1;33m Pulling. . . \033[0m"
+
+pull=$(git pull origin ${BRANCH})
+printf "\n \033[1;32m"
+echo $pull
+printf "\n \033[0m"
 
 
 
 
-for value in "${pullret[@]}"
-do
-
-    if [[ $value == "Already" ]]
-    then
-al=1
-    fi
-        if [[ $value == "to" ]]
-    then
-to=1
-    fi
-done
-    if [[ $al -gt 0 && $to -gt 0 ]]
-    then
-    printf "\033[1;32m UP TO DATE! ${NC}"
-    sleep 1
-    clear
-    else
-    printf "\033[1;31m Something went wrong! ${NC}"
-    fi
 
 while :
 do

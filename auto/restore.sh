@@ -7,7 +7,7 @@ arr=($c)
 tbadded=()
 
 namearray=(${namear[@]})
-printf "${LGY}Add: "
+printf "${LGY}Restore: "
 # read -r opt
 printf "${NC}"
 # optarr=($opt)
@@ -30,8 +30,8 @@ do
     if [[ $value -lt ${#tbadded[@]} ]]
     then
 
-        printf "\033[3;37m ${tbadded[$value]} ${NC} ${LG} was staged ${NC}\n"
-        addd=$(git add ${tbadded[$value]} &> /dev/null)
+        printf "\033[3;37m ${tbadded[$value]} ${NC} ${LG} was restored ${NC}\n"
+        addd=$(git restore ${tbadded[$value]} &> /dev/null)
     else
         printf "$value ${LR}not found${NC}\n"
     fi
