@@ -9,7 +9,7 @@ num='^[0-9]+$'
 while :
 do
 
-    printf "\n@utoG \n-->"
+    printf "\n@utoG \n--> "
     read opt1
     opt=(${opt1[@]})
 
@@ -103,6 +103,10 @@ do
 
         d | D)
             sh ./auto/deploy.sh
+        ;;
+
+        "h" | "H" )
+            sh ./auto/help.sh
         ;;
 
         *)
