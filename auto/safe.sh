@@ -59,6 +59,7 @@ do
             namear1=${mes[@]}
             export c namear namear1 #array of to be added
             sh ./auto/fastpush.sh
+            optar=()
         ;;
 
         c | C)
@@ -98,6 +99,11 @@ do
             namear=${optar[@]}
             export c namear #array of to be added
             sh ./auto/restore.sh
+        ;;
+
+        "r ." | "R .")
+          git restore . &> /dev/null
+            printf "\033[1;32m Everything was RESTORED. \033[0m"
         ;;
 
 
