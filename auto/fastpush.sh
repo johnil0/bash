@@ -14,37 +14,38 @@ then
     echo "haha"
 fi
 
-for value in "${arr[@]}"
+for value1 in "${arr[@]}"
 do
-    echo "> $value"
-    if [[ $value != "xxx" ]]
+    echo "> $value1"
+    if [[ $value1 != "xxx" ]]
     then
-        tbadded+=($value)
+        tbadded+=($value1)
     else
         break
     fi
 done
 
-for value in "${namearray[@]}"
+for value2 in "${namearray[@]}"
 do
-    echo ">> $value"
-    if [[ $value -lt ${#tbadded[@]} ]]
+    echo ">> $value2"
+    echo ">>.. ${#tbadded[@]}"
+    if [[ $value2 -lt ${#tbadded[@]} ]]
     then
 
         # printf "\033[3;37m ${tbadded[$value]} ${NC} ${LG} was staged ${NC}\n"
         git add ${tbadded[$value]} &> /dev/null
     else
-        printf "$value ${LR}not found${NC}\n"
+        printf "$value2 ${LR}not found${NC}\n"
     fi
 
 
 done
-for value in "${namearray1[@]}"
+for value3 in "${namearray1[@]}"
 do
 
-    if [[ $value != "push" ]]
+    if [[ $value3 != "push" ]]
     then
-        commes+=($value)
+        commes+=($value3)
     fi
 done
 if [[ ${#commes[@]} -gt 0 ]]
