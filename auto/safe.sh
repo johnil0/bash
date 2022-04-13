@@ -109,6 +109,10 @@ do
 
         "run")
             $RUN
+            printf "\033[0;31m Stopping...\033[0m"
+
+            sleep 1
+            printf "\033[0;31m Stopped!\033[0m"
         ;;
 
         d | D)

@@ -1,5 +1,5 @@
 MYBRANCH="john-dev"
-BRANCH="main"
+BRANCH="master"
 RUN="npm run dev"
 USER="john-dev"
 MESSAGE="FIX on $(date)"
