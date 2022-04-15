@@ -128,9 +128,19 @@ do
             sh ./auto/help.sh
         ;;
 
+        "dep" )
+            ssh root@159.138.24.196
+            sleep 1
+            sh ./auto/index.sh
+
+
+        ;;
+
         *)
             echo -n "unknown"
         ;;
+        #ssh root@159.138.24.196
+
     esac
 
 done
