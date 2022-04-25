@@ -42,7 +42,6 @@ do
             namear=${mes[@]}
             export namear #array of to be added
             sh ./auto/gitcommit.sh
-            mes=()
         ;;
 
         p | P)
@@ -61,7 +60,6 @@ do
             export c namear namear1 #array of to be added
             sh ./auto/fastpush.sh
             optar=()
-            mes=()
         ;;
 
         c | C)
@@ -124,23 +122,42 @@ do
             sh ./auto/deploy.sh
         ;;
 
-        "h" | "H" )
+        "dep" | "Dep")
+            printf "cd /var/www/html/pcims-be-annex4 \n"
+            printf "bash deploy.sh \n"
+            ssh root@159.138.24.196
+        ;;
+
+        "h" | "H")
             sh ./auto/help.sh
         ;;
 
-        "dep" )
-            ssh root@159.138.24.196
-            sleep 1
-            sh ./auto/index.sh
-
-
+        "branch" | "BRANCH")
+            printf "Input branch name " ; read -r commito;
+            git checkout $commito
         ;;
+
+
+        "git" | "GIT")
+            while :
+            do
+                printf "\033[1;31m ---------Git Commands---------- \n\033[0m" ; read -r gitt;
+
+                if [[ $gitt == 'break' ]]
+                then
+                    printf "\033[1;31m Exiting Raw Git... \n\033[0m"
+                    sleep 1
+                    break
+                else
+                    $gitt
+                fi
+            done
+        ;;
+
 
         *)
             echo -n "unknown"
         ;;
-        #ssh root@159.138.24.196
-
     esac
 
 done
