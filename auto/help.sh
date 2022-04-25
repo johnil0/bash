@@ -1,11 +1,13 @@
 source ./auto/srcvar.sh
-printf "Hi $USERNAME
-AUTOG, version 1.0.0
+printf "Hi \033[1;33m$USERNAME\033[0m
+AUTOG, version 1.0.1
 Type 'h' or 'H' to see this list.
 You can visit https://github.com/johnil0/bash,
 AUTOG is open for support and colaboration.
 
 Uppercase [] means the value is from 'srcvar.sh'.
+\033[1;31m!! MAKE SURE TO EDIT srcvar.sh FIRST!!\033[0m
+After that save the file and restart the GitBash.
 
 Command list:
 c | C                       'clear'
@@ -19,8 +21,17 @@ u . | U .                   'git restore --staged .'
 u 0 1...n                   'git restore --staged [file/s]'
 
 q [text]                    'git pull origin [BRANCH]'
+                            'git add .'
                             'git commit -m [text]'
-                            'git push origin [MYBRANCH]'
+
+b [branch_name]             'git checkout [branch_name]'
+
+ps                          'git push [current branch]
+pl                          'git pull [BRANCH] (default)
+pl [branch]                 'git pull [branch] (optional)
+
+g                           enable GIT COMMANDS
+x                           exit from GIT COMMANDS (after the 'g' only)
 
 push [0 1...n] [message]    'git pull origin [BRANCH]'
                             'git add .'
@@ -37,10 +48,11 @@ push [0 1...n] [message]    'git pull origin [BRANCH]'
 
 run                         '[RUN]' optional
 
-d                           '[PUTTY]' optional
+d                           'ssh [SSH]' (recommended with ssh-key)
+
+(depreciated)               '[PUTTY]' optional
                             '[TXT]' optional
 
-done                        After the 'd' command only.
+(depreciated)                After the 'd' command only.
 
-Authors:
-John, Engr. Ryan V.M.\n\n"
+\n\n"

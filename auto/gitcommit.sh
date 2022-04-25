@@ -19,8 +19,9 @@ do
 done
 mes1=${mes[*]}
 git pull origin $BRANCH &> /dev/null
-# git add . &> /dev/null
+git add . &> /dev/null
 printf "\033[0;32m"
 git commit -m "${mes[*]}"
 printf "\033[0m"
-git push origin $MYBRANCH &> /dev/null
+git status
+# git push origin $MYBRANCH &> /dev/null
