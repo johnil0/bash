@@ -19,8 +19,13 @@ do
 done
 mes1=${mes[*]}
 git pull origin $BRANCH &> /dev/null
-# git add . &> /dev/null
+git add . &> /dev/null
 printf "\033[0;32m"
-git commit -m "${mes[*]}"
+if [[ ${mes[*]} == "" ]]
+then
+    git commit -m "$MESSAGE"
+else
+    git commit -m "${mes[*]}"
+fi
 printf "\033[0m"
-git push origin $MYBRANCH &> /dev/null
+sh ./auto/gitstatus.sh

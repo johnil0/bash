@@ -1,15 +1,38 @@
 #!/bin/bash
+
+
 source ./auto/srcvar.sh
+# echo "--- ${MYBRANCH}"
+# MYBRANCH=${MYBRANCH}
+# echo "+++ ${MYBRANCH}"
 c=$x
 optar=()
 opt=()
 mes=()
 num='^[0-9]+$'
 
+cc=$(git branch)
+cc1=($cc)
+if [[ ${cc1[11]} == "master" || ${cc1[11]} == "main" ]]
+then
+    if [[ ${cc1[10]} == $MYBRANCH ]]
+    then
+        MYBRANCH=$MYBRANCH
+    else
+
+        MYBRANCH1=${cc1[11]}
+    fi
+fi
+
 while :
 do
 
-    printf "\n@utoG \n--> "
+    if [[ $MYBRANCH1 == "" ]]
+    then
+        printf "\n@utoG(\033[1;34m${MYBRANCH}\033[0m) \n--> "
+    else
+        printf "\n@utoG(\033[1;34m${MYBRANCH1}\033[0m) \n--> "
+    fi
     read opt1
     opt=(${opt1[@]})
 
@@ -44,10 +67,20 @@ do
             sh ./auto/gitcommit.sh
         ;;
 
-        p | P)
-
-            git pull origin $BRANCH
+        "pl" | "PL")
+            if [[ ${mes[1]} == "" ]]
+            then
+                ${mes[1]}
+                git pull origin $BRANCH
+            else
+                git pull origin ${mes[1]}
+            fi
         ;;
+        "ps" | "PS")
+
+            git pull origin $MYBRANCH1
+        ;;
+
 
         "push" | "PUSH" | "Push")
             # git pull origin $BRANCH &> /dev/null
@@ -55,11 +88,25 @@ do
             # printf "\033[1;36mPUSHED \033[0m"
             # git commit -m "$MESSAGE"
             # git push origin $MYBRANCH &> /dev/null
-            namear=${optar[@]}
-            namear1=${mes[@]}
-            export c namear namear1 #array of to be added
-            sh ./auto/fastpush.sh
-            optar=()
+            if [[ $MYBRANCH1 == "master" || $MYBRANCH1 == "main" ]]
+            then
+                printf "Your are currently in $MYBRANCH1 branch, still you want to fast push? (y/n)"
+                read -n1 -r fpp
+                if [[ $fpp == "y"  ]]
+                then
+                    namear=${optar[@]}
+                    namear1=${mes[@]}
+                    export c namear namear1 #array of to be added
+                    sh ./auto/fastpush.sh
+                    optar=()
+                fi
+            else
+                namear=${optar[@]}
+                namear1=${mes[@]}
+                export c namear namear1 #array of to be added
+                sh ./auto/fastpush.sh
+                optar=()
+            fi
         ;;
 
         c | C)
@@ -112,40 +159,65 @@ do
 
         "run")
             $RUN
-            printf "\033[0;31m Stopping...\033[0m"
 
-            sleep 1
-            printf "\033[0;31m Stopped!\033[0m"
+            while :
+            do
+                printf "\033[0;31m Stopping...\033[0m"
+                sleep 1
+                printf "\033[0;31m Stopped!\033[0m"
+                break
+            done
+
         ;;
 
-        d | D)
-            sh ./auto/deploy.sh
+        # d | D)
+        #     sh ./auto/deploy.sh
+        # ;;
+        w)
+            cc=$(git branch)
+
+            cc1=($cc)
+
+            for value in $cc
+            do
+                echo $value
+            done
+            if [[ ${cc1[11]} == "master" || ${cc1[11]} == "main" ]]
+            then
+                if [[ ${cc1[10]} == $MYBRANCH ]]
+                then
+                    echo "You are in $MYBRANCH branch."
+                else
+                    echo "You are in the MASTER branch."
+                fi
+            fi
         ;;
 
-        "dep" | "Dep")
+        "d" | "D")
             printf "cd /var/www/html/pcims-be-annex4 \n"
             printf "bash deploy.sh \n"
-            ssh root@159.138.24.196
+            ssh ${SSH}
         ;;
 
         "h" | "H")
             sh ./auto/help.sh
         ;;
 
-        "branch" | "BRANCH")
-            printf "Input branch name " ; read -r commito;
-            git checkout $commito
+        "b" | "B")
+            printf "Switching to \033[1;34m${mes[1]}\033[0m... \n"
+            chk=$(git checkout ${mes[1]})
+            export MYBRANCH1=${mes[1]}
         ;;
 
 
-        "git" | "GIT")
+        "g" | "G")
             while :
             do
                 printf "\033[1;31m ---------Git Commands---------- \n\033[0m" ; read -r gitt;
 
-                if [[ $gitt == 'break' ]]
+                if [[ $gitt == 'x' ]]
                 then
-                    printf "\033[1;31m Exiting Raw Git... \n\033[0m"
+                    printf "\033[1;31m ---------Exit Git---------- \n\033[0m"
                     sleep 1
                     break
                 else

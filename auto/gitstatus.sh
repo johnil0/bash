@@ -1,5 +1,4 @@
 #!/bin/sh
-
 pin1=0
 pin2=0
 pin3=0
