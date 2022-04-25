@@ -88,6 +88,7 @@ do
             # printf "\033[1;36mPUSHED \033[0m"
             # git commit -m "$MESSAGE"
             # git push origin $MYBRANCH &> /dev/null
+<<<<<<< HEAD
             if [[ $MYBRANCH1 == "master" || $MYBRANCH1 == "main" ]]
             then
                 printf "Your are currently in $MYBRANCH1 branch, still you want to fast push? (y/n)"
@@ -107,6 +108,13 @@ do
                 sh ./auto/fastpush.sh
                 optar=()
             fi
+=======
+            namear=${optar[@]}
+            namear1=${mes[@]}
+            export c namear namear1 #array of to be added
+            sh ./auto/fastpush.sh
+            optar=()
+>>>>>>> 6dd39aa956b8edfc3758ffba5203484921ddf199
         ;;
 
         c | C)
@@ -193,16 +201,24 @@ do
             fi
         ;;
 
+<<<<<<< HEAD
         "d" | "D")
             printf "cd /var/www/html/pcims-be-annex4 \n"
             printf "bash deploy.sh \n"
             ssh ${SSH}
+=======
+        "dep" | "Dep")
+            printf "cd /var/www/html/pcims-be-annex4 \n"
+            printf "bash deploy.sh \n"
+            ssh root@159.138.24.196
+>>>>>>> 6dd39aa956b8edfc3758ffba5203484921ddf199
         ;;
 
         "h" | "H")
             sh ./auto/help.sh
         ;;
 
+<<<<<<< HEAD
         "b" | "B")
             printf "Switching to \033[1;34m${mes[1]}\033[0m... \n"
             chk=$(git checkout ${mes[1]})
@@ -211,13 +227,28 @@ do
 
 
         "g" | "G")
+=======
+        "branch" | "BRANCH")
+            printf "Input branch name " ; read -r commito;
+            git checkout $commito
+        ;;
+
+
+        "git" | "GIT")
+>>>>>>> 6dd39aa956b8edfc3758ffba5203484921ddf199
             while :
             do
                 printf "\033[1;31m ---------Git Commands---------- \n\033[0m" ; read -r gitt;
 
+<<<<<<< HEAD
                 if [[ $gitt == 'x' ]]
                 then
                     printf "\033[1;31m ---------Exit Git---------- \n\033[0m"
+=======
+                if [[ $gitt == 'break' ]]
+                then
+                    printf "\033[1;31m Exiting Raw Git... \n\033[0m"
+>>>>>>> 6dd39aa956b8edfc3758ffba5203484921ddf199
                     sleep 1
                     break
                 else
